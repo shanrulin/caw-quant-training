@@ -50,7 +50,8 @@ klines = client.get_historical_klines("ETHBTC", Client.KLINE_INTERVAL_12HOUR, "3
 
 
 ##load data to dataframe
-df = pd.DataFrame(klines,columns=["Open time","Open","High", "Low","Close","Volume","Close time",                                "Quote asset volume","Number of trades","Taker buy base asset volume",
+df = pd.DataFrame(klines,columns=["Open time","Open","High", "Low","Close","Volume","Close time", \
+                                "Quote asset volume","Number of trades","Taker buy base asset volume",\
                                 "Taker buy quote asset volume","Ignore"])
 #drop column
 df = df.drop(columns=["Ignore"])
@@ -142,7 +143,7 @@ df_order_book.tail()
 
 from binance.client import Client
 
-# Created at Binance Not Binance.us. 
+# Created at Binance Not Binance.us.
 # They are different, so your frist attempt using the key and secret from Binance.us don't work
 api_key='FbMo8RNCKlQl2yHsZ8nFWLeT2apXEZPagRZhIs3PoJrePErGQtBgIcGsKfB2q3Ld'
 api_secret='YXMWxgfNYy1sJN6ofoA03LgX5aChY8BEeGsar3VxfjdmvN6SOAPrLKZvU0ryXz9o'
@@ -160,4 +161,3 @@ order = client.create_test_order(
     side=Client.SIDE_BUY,
     type=Client.ORDER_TYPE_MARKET,
     quantity=100)
-
